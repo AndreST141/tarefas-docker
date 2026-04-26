@@ -2,12 +2,12 @@
 
 Este repositório contém a entrega do trabalho prático de Sistemas Distribuídos (Conteinerização de Aplicação).
 
-## Membros do Grupo
-* 1. Amábile Honorato Zucchetti - Matricula: 2310438
-* 2. André Marcos de Sousa Tavares - Matricula: 2313280 
-* 3. Gabriel Pedro Silva Dutra - Matricula: 2310154 
-* 4. Guilherme Poloniato Salomão - Matricula: 2310359
-* 5. Matheus Sabino Ribeiro - Matricula: 2313148
+## 👥 Membros do Grupo
+1. Amábile Honorato Zucchetti - Matricula: 2310438
+2. André Marcos de Sousa Tavares - Matricula: 2313280 
+3. Gabriel Pedro Silva Dutra - Matricula: 2310154 
+4. Guilherme Poloniato Salomão - Matricula: 2310359
+5. Matheus Sabino Ribeiro - Matricula: 2313148
 ---
 
 ## 🚀 Passo a Passo para Execução (Comandos Docker)
@@ -15,7 +15,7 @@ Este repositório contém a entrega do trabalho prático de Sistemas Distribuíd
 Siga os comandos abaixo na ordem para construir as imagens e iniciar os containers corretamente. Todos os comandos devem ser executados na raiz deste projeto.
 
 ### 1. Criar a rede customizada do projeto
-Precisamos criar uma rede no Docker para que os containers possam se encontrar e se comunicar pelo nome.
+Precisa criar uma rede no Docker para que os containers possam se encontrar e se comunicar pelo nome.
 
 ```bash
 docker network create tarefas-network
@@ -57,7 +57,49 @@ docker run -d --name frontend --network tarefas-network -p 8080:8080 frontend-im
 
 ---
 
-## 6 Acessando a Aplicação
+## 🌐 6 Acessando a Aplicação
 Após executar todos os passos, a aplicação estará disponível em:
 * **Frontend:** http://localhost:8080
 * **Backend (API):** http://localhost:4000
+
+---
+
+## ⚙️ 7. Dockerfile do Backend
+
+```Dockerfile
+FROM node:22-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 4000
+
+CMD ["npm", "start"]
+```
+
+---
+
+## 🎨 8. Dockerfile do Frontend
+
+```Dockerfile
+FROM node:22-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+
+CMD ["npm", "run", "dev", "--", "--host"]
+```
+
+---
