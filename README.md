@@ -10,7 +10,7 @@ Este repositório contém a entrega do trabalho prático de Sistemas Distribuíd
 * 5. Matheus Sabino Ribeiro - Matricula: 2313148
 ---
 
-## Passo a Passo para Execução (Comandos Docker)
+## 🚀 Passo a Passo para Execução (Comandos Docker)
 
 Siga os comandos abaixo na ordem para construir as imagens e iniciar os containers corretamente. Todos os comandos devem ser executados na raiz deste projeto.
 
